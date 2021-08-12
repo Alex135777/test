@@ -1,22 +1,27 @@
-.root-container {
-  height: 100vh;
-}
-
 .background {
+  height: 100vh;
+  font-size: 14px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  background-image: url(./background.png);
+  background-image: url("//images01.nicepage.com/c461c07a441a5d220e8feb1a/dc7eed1debe95756bca7836c/gfdfdfdf.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 
+.container {
+  margin: auto;
+  max-width: 5000px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  height: 50px;
+  margin-bottom: 15px;
+}
+
 .sign-in {
-  width: 470px;
-  margin-top: 100px;
-  padding: 35px;
+  padding: 25px;
   background-color: #191d2c;
   color: #757781;
   border-radius: 8px;
