@@ -21,10 +21,26 @@ const darkTheme = createTheme({
   },
 });
 
+const EnhancedTextField = ({ Icon, ...props }) => {
+  return (
+    <TextField
+      margin='normal'
+      fullWidth
+      InputProps={{
+        classes: {
+          root: 'input',
+        },
+        startAdornment: <Icon className='icon' color='secondary'/>,
+      }}
+      {...props}
+    />
+  )
+}
+
 function App() {
 
-  const submitHandle = (e) => {
-    console.log(e.target);
+  const submitHandle = () => {
+    console.log('submitHandle');
   }
 
   return (
@@ -33,54 +49,39 @@ function App() {
         <div className='container'>
           <img src={logo} className='logo' alt='logo' />
           <div className='sign-in'>
-          <h2 className='title'>
-            Sign in
-          </h2>
-          <form onSubmit={submitHandle} autoComplete='off'>
-            <TextField
-              placeholder='USER NAME'
-              margin='normal'
-              fullWidth
-              name='email'
-              InputProps={{
-                classes: {
-                  root: 'input',
-                },
-                startAdornment: <PersonIcon className='icon' color='secondary'/>,
-              }}
-            />
-            <TextField
-              placeholder='PASSWORD'
-              margin='normal'
-              fullWidth
-              name='password'
-              type='password'
-              InputProps={{
-                classes: {
-                  root: 'input'
-                },
-                startAdornment: <LockIcon className='icon' color='secondary'/>,
-              }}
-            />
-            <Grid container className='links'>
-              <Grid item xs>
-                <Link href='#' color='primary'>Forgot password?</Link>
+            <h2 className='title'>
+              Sign in
+            </h2>
+            <form onSubmit={submitHandle} autoComplete='off'>
+              <EnhancedTextField
+                placeholder='USER NAME'
+                name='email'
+                Icon={PersonIcon}
+              />
+              <EnhancedTextField
+                placeholder='PASSWORD'
+                name='password' type='password'
+                Icon={LockIcon}
+              />
+              <Grid container className='links'>
+                <Grid item xs>
+                  <Link href='#' color='primary'>Forgot password?</Link>
+                </Grid>
+                <Grid item>
+                  <span>Don't have an account? </span>
+                  <Link href='#' color='primary'>Sign Up</Link>
+                </Grid>
               </Grid>
-              <Grid item>
-                <span>Don't have an account? </span>
-                <Link href='#' color='primary'>Sign Up</Link>
-              </Grid>
-            </Grid>
-            <Button
-              type='submit'
-              variant='outlined'
-              color='primary'
-              className='submit'
-            >
-              Sign In
-            </Button>
-          </form>
-        </div>
+              <Button
+                type='submit'
+                variant='outlined'
+                color='primary'
+                className='submit'
+              >
+                Sign In
+              </Button>
+            </form>
+          </div>
         </div>
       </div>
     </ThemeProvider>
