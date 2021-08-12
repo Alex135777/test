@@ -21,21 +21,19 @@ const darkTheme = createTheme({
   },
 });
 
-const EnhancedTextField = ({ Icon, ...props }) => {
-  return (
-    <TextField
-      margin='normal'
-      fullWidth
-      InputProps={{
-        classes: {
-          root: 'input',
-        },
-        startAdornment: <Icon className='icon' color='secondary'/>,
-      }}
-      {...props}
-    />
-  )
-}
+const EnhancedTextField = ({ Icon, ...props }) => (
+  <TextField
+    margin='normal'
+    fullWidth
+    InputProps={{
+      classes: {
+        root: 'input',
+      },
+      startAdornment: <Icon className='icon' color='secondary'/>,
+    }}
+    {...props}
+  />
+)
 
 function App() {
 
